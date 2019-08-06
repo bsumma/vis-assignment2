@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework 2 Solution</title>
+    <style>
+        .barChart {
+            fill: steelblue;
+            stroke: darkgray;
+            stroke-width: 1px;
+        }
+
+        .barChart rect:hover {
+            fill: seagreen;
+        }
+
+        .lines {
+            stroke: steelblue;
+            fill: none
+        }
+
+        .areas {
+            stroke: none;
+            fill: steelblue
+        }
+
+        circle {
+            fill: steelblue;
+        }
+
+        .frame {
+            fill: none;
+            stroke: black;
+            stroke-width: 2px;
+        }
+
+        /* Styles that clean up the layout;
+         * you can ignore these */
+        div {
+            display: inline-block;
+            border: 1px solid lightgray;
+            margin: 1em;
+        }
+
+        div, span {
+            padding: 1em;
+        }
+    </style>
+</head>
+<body>
+
+<h3>CMPS-3360 Homework 2</h3>
+<span>Your Name</span>
+<span>Your Email Address</span>
+
+<br/>
+<hr/>
+<br/>
+
+<span>
+    <label>Dataset:</label>
+    <select id="dataset">
+        <option value="anscombe_I">Anscombe's Quartet I</option>
+        <option value="anscombe_II">Anscombe's Quartet II</option>
+        <option selected value="anscombe_III">Anscombe's Quartet III</option>
+        <option value="anscombe_IV">Anscombe's Quartet IV</option>
+    </select>
+</span>
+
+<span>
+    <button>Random Subset</button>
+</span>
+
+<br/>
+
+<div>
+    <h2>Bar Charts</h2>
+    <svg width="200" height="200">
+        <!-- x-value bar chart -->
+      <rect style="stroke: black; stroke-width: 1; fill: steelblue; opacity: 1;" 
+        x="0" y="57.14285714285714" height="142.85714285714286" 
+        width="18.181818181818183"/>
+      <rect style="stroke: black; stroke-width: 1; fill: steelblue; opacity: 1;" 
+        x="18.181818181818183" y="85.71428571428572" height="114.28571428571428" 
+        width="18.181818181818183"/>
+      <rect style="stroke: black; stroke-width: 1; fill: steelblue; opacity: 1;"
+        x="36.36363636363637" y="14.285714285714278"
+        height="185.71428571428572" width="18.181818181818183"/>
+      <rect style="stroke: black; stroke-width: 1; fill: steelblue; opacity: 1;"
+        x="54.54545454545454" y="71.42857142857142" height="128.57142857142858"
+        width="18.181818181818183"/>
+      <rect style="stroke: black; stroke-width: 1; fill: steelblue; opacity: 1;"
+        x="72.72727272727273" y="42.85714285714286" height="157.14285714285714"
+        width="18.181818181818183"/>
+      <rect style="stroke: black; stroke-width: 1; fill: steelblue; opacity: 1;"
+        x="90.9090909090909" y="0" height="200" width="18.181818181818183"/>
+      <rect style="stroke: black; stroke-width: 1; fill: steelblue; opacity: 1;"
+        x="109.09090909090908" y="114.28571428571429"
+        height="85.71428571428571" width="18.181818181818183"/>
+      <rect style="stroke: black; stroke-width: 1; fill: steelblue; opacity: 1;"
+        x="127.27272727272727" y="142.85714285714286"
+        height="57.14285714285714" width="18.181818181818183"/>
+      <rect style="stroke: black; stroke-width: 1; fill: steelblue; opacity: 1;"
+        x="145.45454545454547" y="28.571428571428584"
+        height="171.42857142857142" width="18.181818181818183"/>
+      <rect style="stroke: black; stroke-width: 1; fill: steelblue; opacity: 1;"
+        x="163.63636363636365" y="100" height="100" width="18.181818181818183"/>
+      <rect style="stroke: black; stroke-width: 1; fill: steelblue; opacity: 1;"
+        x="181.8181818181818" y="128.57142857142856" height="71.42857142857143"
+        width="18.181818181818183"/>
+    </svg>
+
+    <svg width="200" height="200">
+        <!-- y-value bar chart -->
+      <rect style="stroke: black; stroke-width: 1; fill: steelblue; opacity: 1;"
+        x="0" y="82.88854003139718" height="117.11145996860282"
+        width="18.181818181818183"/>
+      <rect style="stroke: black; stroke-width: 1; fill: steelblue; opacity: 1;"
+        x="18.181818181818183" y="93.72056514913658"
+        height="106.27943485086342" width="18.181818181818183"/>
+      <rect style="stroke: black; stroke-width: 1; fill: steelblue; opacity: 1;"
+        x="36.36363636363637" y="0" height="200" width="18.181818181818183"/>
+      <rect style="stroke: black; stroke-width: 1; fill: steelblue; opacity: 1;"
+        x="54.54545454545454" y="88.38304552590266" height="111.61695447409734"
+        width="18.181818181818183"/>
+      <rect style="stroke: black; stroke-width: 1; fill: steelblue; opacity: 1;"
+        x="72.72727272727273" y="77.39403453689168" height="122.60596546310832"
+        width="18.181818181818183"/>
+      <rect style="stroke: black; stroke-width: 1; fill: steelblue; opacity: 1;"
+        x="90.9090909090909" y="61.22448979591837" height="138.77551020408163"
+        width="18.181818181818183"/>
+      <rect style="stroke: black; stroke-width: 1; fill: steelblue; opacity: 1;"
+        x="109.09090909090908" y="104.55259026687598"
+        height="95.44740973312402" width="18.181818181818183"/>
+      <rect style="stroke: black; stroke-width: 1; fill: steelblue; opacity: 1;"
+        x="127.27272727272727" y="115.3846153846154" height="84.6153846153846"
+        width="18.181818181818183"/>
+      <rect style="stroke: black; stroke-width: 1; fill: steelblue; opacity: 1;"
+        x="145.45454545454547" y="72.05651491365776"
+        height="127.94348508634224" width="18.181818181818183"/>
+      <rect style="stroke: black; stroke-width: 1; fill: steelblue; opacity: 1;"
+        x="163.63636363636365" y="99.21507064364208"
+        height="100.78492935635792" width="18.181818181818183"/>
+      <rect style="stroke: black; stroke-width: 1; fill: steelblue; opacity: 1;"
+        x="181.8181818181818" y="110.04709576138147" height="89.95290423861853"
+        width="18.181818181818183"/>
+    </svg>
+</div>
+
+<div>
+    <h2>Line Charts</h2>
+
+    <svg width="200" height="200">
+        <!-- x-value line chart -->
+      <path d="M0,57.14285714285714 L18.181818181818183,85.71428571428572 
+        L36.36363636363637,14.285714285714278 L54.54545454545454,71.42857142857142 
+        L72.72727272727273,42.85714285714286 L90.9090909090909,0 
+        L109.09090909090908,114.28571428571429 L127.27272727272727,142.85714285714286
+        L145.45454545454547,28.571428571428584 L163.63636363636365,100
+        L181.8181818181818,128.57142857142856"
+        class="lines" />
+    </svg>
+
+    <svg width="200" height="200">
+        <!--  y-value line chart -->
+      <path d="M0,82.88854003139718 L18.181818181818183,93.72056514913658
+        L36.36363636363637,0 L54.54545454545454,88.38304552590266
+        L72.72727272727273,77.39403453689168 L90.9090909090909,61.22448979591837
+        L109.09090909090908,104.55259026687598 L127.27272727272727,115.3846153846154
+        L145.45454545454547,72.05651491365776 L163.63636363636365,99.21507064364208
+        L181.8181818181818,110.04709576138147"
+        class="lines" />
+    </svg>
+</div>
+
+<div>
+    <h2>Area Charts</h2>
+
+    <svg width="200" height="200">
+        <!-- x-value area chart -->
+      <path d="M0,57.14285714285714 L18.181818181818183,85.71428571428572
+        L36.36363636363637,14.285714285714278 L54.54545454545454,71.42857142857142
+        L72.72727272727273,42.85714285714286 L90.9090909090909,0
+        L109.09090909090908,114.28571428571429 L127.27272727272727,142.85714285714286
+        L145.45454545454547,28.571428571428584 L163.63636363636365,100
+        L181.8181818181818,128.57142857142856 L181.8181818181818,200
+        L163.63636363636365,200 L145.45454545454547,200 L127.27272727272727,200
+        L109.09090909090908,200 L90.9090909090909,200 L72.72727272727273,200
+        L54.54545454545454,200 L36.36363636363637,200 L18.181818181818183,200
+        L0,200Z" class="areas" />
+    </svg>
+
+    <svg width="200" height="200">
+        <!-- y-value area chart -->
+      <path d="M0,82.88854003139718 L18.181818181818183,93.72056514913658
+        L36.36363636363637,0 L54.54545454545454,88.38304552590266
+        L72.72727272727273,77.39403453689168 L90.9090909090909,61.22448979591837
+        L109.09090909090908,104.55259026687598 L127.27272727272727,115.3846153846154
+        L145.45454545454547,72.05651491365776 L163.63636363636365,99.21507064364208
+        L181.8181818181818,110.04709576138147 L181.8181818181818,200
+        L163.63636363636365,200 L145.45454545454547,200 L127.27272727272727,200
+        L109.09090909090908,200 L90.9090909090909,200 L72.72727272727273,200
+        L54.54545454545454,200 L36.36363636363637,200 L18.181818181818183,200
+        L0,200Z" class="areas"/>
+    </svg>
+</div>
+
+<div>
+    <h2>Scatterplot</h2>
+
+    <svg width="210" height="210">
+        <!-- x-y scatter plot -->
+      <circle r="3.571428571428571" cy="82.88854003139718" cx="142.85714285714286"/>
+      <circle r="3.571428571428571" cy="93.72056514913658" cx="114.28571428571428"/>
+      <circle r="3.571428571428571" cy="0" cx="185.71428571428572"/>
+      <circle r="3.571428571428571" cy="88.38304552590266" cx="128.57142857142858"/>
+      <circle r="3.571428571428571" cy="77.39403453689168" cx="157.14285714285714"/>
+      <circle r="3.571428571428571" cy="61.22448979591837" cx="200"/>
+      <circle r="3.571428571428571" cy="104.55259026687598" cx="85.71428571428571"/>
+      <circle r="3.571428571428571" cy="115.3846153846154" cx="57.14285714285714"/>
+      <circle r="3.571428571428571" cy="72.05651491365776" cx="171.42857142857142"/>
+      <circle r="3.571428571428571" cy="99.21507064364208" cx="100"/>
+      <circle r="3.571428571428571" cy="110.04709576138147" cx="71.42857142857143"/>
+    </svg>
+</div>
+</body>
+</html>
